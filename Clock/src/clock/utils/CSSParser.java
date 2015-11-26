@@ -41,14 +41,18 @@ public class CSSParser {
                 "}";
     }
 
-    public void updateStylesheet(){
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter("../../style.css", "UTF-8");
-            writer.println(getStyle());
-            writer.close();
-        } catch (FileNotFoundException | UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+    public void updateStylesheet() {
+	try (Writer writer = new BufferedWriter(
+		new OutputStreamWriter(new FileOutputStream("bin/style.css"), "utf-8"))) {
+	    writer.write(getStyle());
+	    String style = getStyle();
+	    style.toCharArray();
+	} catch (UnsupportedEncodingException e) {
+	    e.printStackTrace();
+	} catch (FileNotFoundException e) {
+	    e.printStackTrace();
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
     }
 }
