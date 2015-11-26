@@ -1,0 +1,13 @@
+#background {
+    -fx-background-radius: 30;
+    -fx-background-color:blue;
+    -fx-border-radius: 30;
+    -fx-border-width:5;
+    -fx-border-color:black;
+}
+
+#text {
+    -fx-font-style: italic;
+    -fx-font-size: 40px;
+    -fx-fill:white;
+}
