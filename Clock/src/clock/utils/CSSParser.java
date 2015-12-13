@@ -3,8 +3,10 @@ package clock.utils;
 import java.io.*;
 import java.util.Properties;
 
+import org.omg.CORBA.INITIALIZE;
+
 public class CSSParser {
-    private Properties properties;
+    public static Properties properties;
 
     public CSSParser(String propertiesFileName) {
         initialize(propertiesFileName);
@@ -23,6 +25,10 @@ public class CSSParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    public static Properties getProperties(){
+	    return properties;
     }
 
     public String getStyle() {
